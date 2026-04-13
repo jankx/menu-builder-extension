@@ -1,0 +1,14 @@
+{
+    "name": "jankx/menu-builder",
+    "description": "Menu Builder Block",
+    "type": "jankx-extension",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jankx\\Extensions\\MenuBuilder\\": [
+                "",
+                "includes/"
+            ]
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "@jankx/menu-builder",
+    "version": "1.0.0",
+    "description": "Menu Builder Block",
+    "devDependencies": {
+        "@wordpress/scripts": "^30.23.0"
+    },
+    "scripts": {
+        "build": "wp-scripts build",
+        "start": "wp-scripts start"
+    }
+}

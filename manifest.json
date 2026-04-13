@@ -1,0 +1,14 @@
+{
+    "name": "Menu Builder Block",
+    "version": "1.0.0",
+    "description": "Provides Menu Builder block.",
+    "author": "Jankx",
+    "extension_id": "menu-builder",
+    "caller": {
+        "file": "MenuBuilderExtension.php",
+        "class": "Jankx\\Extensions\\MenuBuilder\\MenuBuilderExtension",
+        "method": "init"
+    },
+    "auto_activate": true,
+    "enabled": true
+}
