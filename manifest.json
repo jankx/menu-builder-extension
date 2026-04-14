@@ -1,6 +1,6 @@
 {
     "name": "Menu Builder Block",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Provides Menu Builder block.",
     "author": "Jankx",
     "extension_id": "menu-builder",
