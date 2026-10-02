@@ -17,7 +17,7 @@ class MenuBuilderExtension extends AbstractExtension
 
     public function register_extension_blocks($repository, $app): void
     {
-        $blocks = ["MenuBuilderBlock"];
+        $blocks = ["MegaMenuBlock", "MegaMenuItemBlock", "MegaMenuSubmenuBlock"];
 
         foreach ($blocks as $blockClass) {
             require_once __DIR__ . '/includes/Blocks/' . $blockClass . '.php';

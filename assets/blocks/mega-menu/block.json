@@ -1,0 +1,70 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "jankx/mega-menu",
+    "version": "1.0.0",
+    "title": "Mega Menu",
+    "category": "jankx",
+    "description": "Mega Menu with flyout, dropdown, and multilevel submenus",
+    "keywords": ["menu", "navigation", "mega", "flyout", "dropdown", "multilevel"],
+    "textdomain": "jankx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./frontend.js",
+    "attributes": {
+        "menuId": {
+            "type": "string",
+            "default": ""
+        },
+        "menuClass": {
+            "type": "string",
+            "default": "jankx-mega-menu"
+        },
+        "mobileBreakpoint": {
+            "type": "number",
+            "default": 768
+        },
+        "desktopBreakpoint": {
+            "type": "number",
+            "default": 1024
+        },
+        "enableMobileMenu": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableDesktopMenu": {
+            "type": "boolean",
+            "default": true
+        },
+        "mobileMenuPosition": {
+            "type": "string",
+            "default": "left"
+        },
+        "submenuTrigger": {
+            "type": "string",
+            "default": "hover"
+        },
+        "dropdownAnimation": {
+            "type": "string",
+            "default": "fade"
+        },
+        "hoverDelay": {
+            "type": "number",
+            "default": 200
+        }
+    },
+    "supports": {
+        "anchor": true,
+        "align": ["wide", "full"],
+        "html": false,
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true,
+            "lineHeight": true
+        }
+    }
+}
