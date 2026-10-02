@@ -10,8 +10,7 @@ import './editor.scss';
 
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { link, button } from '@wordpress/icons';
-import { Icon } from '@wordpress/icons';
+import { Icons } from '../../../mega-menu/components/Icons';
 
 import Edit from './edit';
 import Save from './save';

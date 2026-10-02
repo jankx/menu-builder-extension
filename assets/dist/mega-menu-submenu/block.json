@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "jankx/mega-menu-submenu",
+    "version": "1.0.0",
+    "title": "Mega Menu Submenu",
+    "category": "jankx",
+    "parent": ["jankx/mega-menu-item"],
+    "description": "Submenu container with layout and display settings",
+    "keywords": ["submenu", "dropdown", "flyout", "mega"],
+    "textdomain": "jankx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "attributes": {
+        "layout": {
+            "type": "string",
+            "default": "list"
+        },
+        "columns": {
+            "type": "number",
+            "default": 2
+        },
+        "submenuWidth": {
+            "type": "string",
+            "default": "auto"
+        },
+        "align": {
+            "type": "string",
+            "default": "left"
+        },
+        "cardStyle": {
+            "type": "string",
+            "default": "detailed"
+        },
+        "submenuType": {
+            "type": "string",
+            "default": "dropdown"
+        }
+    },
+    "supports": {
+        "anchor": false,
+        "customClassName": true,
+        "html": false,
+        "multiple": false,
+        "reusable": false
+    }
+}

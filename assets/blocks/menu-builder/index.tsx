@@ -9,7 +9,7 @@ import './blocks/menu-item/index.tsx';
 
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { Icon, menu } from '@wordpress/icons';
+import { Icons } from '../mega-menu/components/Icons';
 
 import Edit from './edit';
 import Save from './save';

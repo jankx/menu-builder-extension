@@ -7,8 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, TextControl, SelectControl, CheckboxControl, Button, RangeControl, ToggleControl, Card, CardBody } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
-import { plus, trash, pencil, arrowUp, arrowDown, menu } from '@wordpress/icons';
-import { Icon } from '@wordpress/icons';
+import { Icons } from '../mega-menu/components/Icons';
 import metadata from './block.json';
 
 // Global variable declaration
