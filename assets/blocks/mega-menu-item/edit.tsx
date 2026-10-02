@@ -3,8 +3,7 @@ import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-
 import { PanelBody, TextControl, SelectControl, ButtonGroup, Button } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { useSelect, useDispatch } from '@wordpress/data';
-import { link, chevronDown, chevronRight, button } from '@wordpress/icons';
-import { Icon } from '@wordpress/icons';
+import { Icons } from '../mega-menu/components/Icons';
 
 interface MenuItemAttributes {
     itemId: string;

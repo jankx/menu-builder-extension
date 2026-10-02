@@ -1,7 +1,5 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, TextControl, SelectControl, RangeControl, ButtonGroup, Button, TextareaControl } from '@wordpress/components';
-import { plus, trash, close, copy, settings, text, image, sliders } from '@wordpress/icons';
-import { Icon } from '@wordpress/icons';
 import { Icons, ICON_OPTIONS, DynamicIcon } from './Icons';
 import { MenuItem } from './TreeEditor';
 

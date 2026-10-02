@@ -1,8 +1,6 @@
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Button, TextControl, ButtonGroup } from '@wordpress/components';
-import { plus, chevronDown, chevronRight, close, moveUp, moveDown, copy, trash, folderTree } from '@wordpress/icons';
-import { Icon } from '@wordpress/icons';
 import { Icons, DynamicIcon } from './Icons';
 
 export interface MenuItem {

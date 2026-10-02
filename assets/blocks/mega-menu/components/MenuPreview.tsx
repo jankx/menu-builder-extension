@@ -1,7 +1,6 @@
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Button, ButtonGroup } from '@wordpress/components';
-import { Icon } from '@wordpress/icons';
 import { Icons, DynamicIcon } from './Icons';
 import { MenuItem } from './TreeEditor';
 
@@ -256,7 +255,7 @@ const MenuPreview = ({ items, selectedId, onSelectItem }: MenuPreviewProps) => {
                             <Icon icon={Icons.PanelLeft} size={16} />
                             <span>
                                 {__('Vertical Sidebar Mode', 'jankx')}:{' '}
-                                <strong>{verticalExpandStyle === 'flyout' ? __('Flyout to right', 'jankx') : ('Accordion expand', 'jankx') as any)}</strong>
+                                <strong>{verticalExpandStyle === 'flyout' ? __('Flyout to right', 'jankx') : __('Accordion expand', 'jankx')}</strong>
                             </span>
                         </div>
                         <div className="menu-preview-vertical-grid">

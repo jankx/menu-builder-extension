@@ -1,8 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, RangeControl, ButtonGroup, Button } from '@wordpress/components';
-import { list, grid, columns } from '@wordpress/icons';
-import { Icon } from '@wordpress/icons';
+import { Icons } from '../mega-menu/components/Icons';
 
 interface SubmenuAttributes {
     layout: string;

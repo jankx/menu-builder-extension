@@ -20,7 +20,6 @@ class MenuBuilderExtension extends AbstractExtension
         $blocks = ["MegaMenuBlock", "MegaMenuItemBlock", "MegaMenuSubmenuBlock"];
 
         foreach ($blocks as $blockClass) {
-            require_once __DIR__ . '/includes/Blocks/' . $blockClass . '.php';
             $fullClass = 'Jankx\Extensions\MenuBuilder\\Blocks\\' . $blockClass;
             $block = $app->make($fullClass);
             $blockId = basename($block->getBlockId());
