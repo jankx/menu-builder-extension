@@ -23,7 +23,7 @@ class MenuBuilderExtension extends AbstractExtension
             $fullClass = 'Jankx\Extensions\MenuBuilder\\Blocks\\' . $blockClass;
             $block = $app->make($fullClass);
             $blockId = basename($block->getBlockId());
-            $block->setBlockPath($this->get_extension_path() . '/assets/blocks/' . $blockId);
+            $block->setBlockPath($this->get_extension_path() . '/assets/dist/' . $blockId);
             $repository->registerBlock($block);
         }
     }
