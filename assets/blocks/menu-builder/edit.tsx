@@ -7,7 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, TextControl, SelectControl, CheckboxControl, Button, RangeControl, ToggleControl, Card, CardBody } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
-import { Icons } from '../mega-menu/components/Icons';
+import { Icons, Icon } from '../mega-menu/components/Icons';
 import metadata from './block.json';
 
 // Global variable declaration
@@ -753,7 +753,7 @@ const Edit = ({ attributes, setAttributes }: { attributes: BlockAttributes, setA
             <div className="menu-builder-editor">
                 <div className="menu-builder-header">
                     <h3>
-                        <Icon icon={menu} />
+                        <Icon icon={Icons.Menu} />
                         {__('Responsive Menu Builder', 'jankx')}
                     </h3>
                     <Button

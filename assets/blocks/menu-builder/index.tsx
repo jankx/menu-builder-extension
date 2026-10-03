@@ -9,14 +9,14 @@ import './blocks/menu-item/index.tsx';
 
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { Icons } from '../mega-menu/components/Icons';
+import { Icons, Icon } from '../mega-menu/components/Icons';
 
 import Edit from './edit';
 import Save from './save';
 
 // Register the block
 registerBlockType('jankx/menu-builder', {
-    icon: <Icon icon={menu} />,
+    icon: Icons.Menu,
     edit: Edit,
     save: Save,
 });
