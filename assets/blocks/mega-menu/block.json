@@ -6,7 +6,14 @@
     "title": "Mega Menu",
     "category": "jankx",
     "description": "Mega Menu with flyout, dropdown, and multilevel submenus",
-    "keywords": ["menu", "navigation", "mega", "flyout", "dropdown", "multilevel"],
+    "keywords": [
+        "menu",
+        "navigation",
+        "mega",
+        "flyout",
+        "dropdown",
+        "multilevel"
+    ],
     "textdomain": "jankx",
     "editorScript": "file:./index.js",
     "editorStyle": "file:./editor.css",
@@ -56,7 +63,10 @@
     },
     "supports": {
         "anchor": true,
-        "align": ["wide", "full"],
+        "align": [
+            "wide",
+            "full"
+        ],
         "html": false,
         "spacing": {
             "margin": true,
@@ -65,6 +75,10 @@
         "typography": {
             "fontSize": true,
             "lineHeight": true
-        }
-    }
+        },
+        "multiple": true
+    },
+    "allowedBlocks": [
+        "jankx/mega-menu-item"
+    ]
 }

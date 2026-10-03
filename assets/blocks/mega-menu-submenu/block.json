@@ -44,5 +44,6 @@
         "html": false,
         "multiple": false,
         "reusable": false
-    }
+    },
+    "allowedBlocks": ["jankx/mega-menu-item"]
 }

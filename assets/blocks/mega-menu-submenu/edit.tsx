@@ -1,24 +1,19 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, RangeControl, ButtonGroup, Button } from '@wordpress/components';
-import { Icons, Icon } from '../mega-menu/components/Icons';
+import { PanelBody, SelectControl, RangeControl, Button } from '@wordpress/components';
+import { createBlock } from '@wordpress/blocks';
+import { useDispatch, useSelect } from '@wordpress/data';
 
 interface SubmenuAttributes {
-    layout: string;
+    layout: 'list' | 'grid' | 'columns';
     columns: number;
-    submenuWidth: string;
-    align: string;
-    cardStyle: string;
+    submenuWidth: 'auto' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
+    align: 'left' | 'center' | 'right';
+    cardStyle: 'compact' | 'detailed' | 'cards';
     submenuType: string;
 }
 
-const LAYOUTS = [
-    { label: __('List', 'jankx'), value: 'list', icon: Icons.LayoutList },
-    { label: __('Grid', 'jankx'), value: 'grid', icon: Icons.Grid },
-    { label: __('Columns', 'jankx'), value: 'columns', icon: Icons.Columns }
-];
-
-const Edit = ({ attributes, setAttributes }: { attributes: SubmenuAttributes, setAttributes: (updates: Partial<SubmenuAttributes>) => void }) => {
+const Edit = ({ attributes, setAttributes, clientId }: any) => {
     const {
         layout,
         columns,
@@ -26,72 +21,89 @@ const Edit = ({ attributes, setAttributes }: { attributes: SubmenuAttributes, se
         align,
         cardStyle,
         submenuType
-    } = attributes;
+    } = attributes as SubmenuAttributes;
+
+    const { insertBlock } = useDispatch('core/block-editor');
+
+    const { innerBlocks } = useSelect(
+        (select: any) => {
+            const store = select('core/block-editor');
+            return {
+                innerBlocks: store.getBlock(clientId)?.innerBlocks || []
+            };
+        },
+        [clientId]
+    );
+
+    const addSubmenuItem = () => {
+        const submenuBlock = createBlock('jankx/mega-menu-item', {
+            itemId: 'menu-item-' + Math.random().toString(36).substr(2, 9),
+            label: __('New Submenu Item', 'jankx'),
+            url: '#',
+            menuType: 'link',
+            icon: '',
+            imageUrl: '',
+            description: '',
+            badge: '',
+            badgeColor: 'blue',
+            target: '_self',
+            rel: '',
+            cssClass: ''
+        });
+
+        insertBlock(submenuBlock, innerBlocks.length, clientId);
+    };
 
     const blockProps = useBlockProps({
-        className: `mega-menu-submenu mega-menu-submenu-${layout} mega-menu-submenu-${submenuType}`
+        className: `mega-menu-submenu submenu-${submenuType} layout-${layout} columns-${columns}`
     });
 
     return (
         <>
             <InspectorControls>
-                <PanelBody title={__('Submenu Layout', 'jankx')} initialOpen={true}>
-                    <div className="components-base-control">
-                        <label className="components-base-control__label">
-                            {__('Layout', 'jankx')}
-                        </label>
-                        <ButtonGroup>
-                            {LAYOUTS.map((l) => (
-                                <Button
-                                    key={l.value}
-                                    variant={layout === l.value ? 'primary' : 'secondary'}
-                                    icon={l.icon}
-                                    onClick={() => setAttributes({ layout: l.value as any })}
-                                    label={l.label}
-                                >
-                                    {l.label}
-                                </Button>
-                            ))}
-                        </ButtonGroup>
-                    </div>
-
+                <PanelBody title={__('Submenu Settings', 'jankx')} initialOpen={true}>
+                    <SelectControl
+                        label={__('Layout', 'jankx')}
+                        value={layout}
+                        options={[
+                            { label: __('List', 'jankx'), value: 'list' },
+                            { label: __('Grid', 'jankx'), value: 'grid' },
+                            { label: __('Columns', 'jankx'), value: 'columns' }
+                        ]}
+                        onChange={(layout) => setAttributes({ layout })}
+                    />
                     {(layout === 'grid' || layout === 'columns') && (
                         <RangeControl
                             label={__('Columns', 'jankx')}
                             value={columns}
-                            onChange={(columns) => setAttributes({ columns: columns || 2 })}
+                            onChange={(columns) => setAttributes({ columns: columns || 1 })}
                             min={1}
                             max={6}
                         />
                     )}
-
                     <SelectControl
                         label={__('Submenu Width', 'jankx')}
                         value={submenuWidth}
                         options={[
                             { label: __('Auto', 'jankx'), value: 'auto' },
-                            { label: __('Small (~260px)', 'jankx'), value: 'sm' },
-                            { label: __('Medium (~380px)', 'jankx'), value: 'md' },
-                            { label: __('Large (~520px)', 'jankx'), value: 'lg' },
-                            { label: __('Extra Large (~680px)', 'jankx'), value: 'xl' },
-                            { label: __('Full Width', 'jankx'), value: 'full' }
+                            { label: __('Small', 'jankx'), value: 'sm' },
+                            { label: __('Medium', 'jankx'), value: 'md' },
+                            { label: __('Large', 'jankx'), value: 'lg' },
+                            { label: __('Extra Large', 'jankx'), value: 'xl' },
+                            { label: __('Full', 'jankx'), value: 'full' }
                         ]}
-                        onChange={(submenuWidth) => setAttributes({ submenuWidth: submenuWidth as any })}
+                        onChange={(submenuWidth) => setAttributes({ submenuWidth })}
                     />
-
-                    {submenuType !== 'mega' && (
-                        <SelectControl
-                            label={__('Alignment', 'jankx')}
-                            value={align}
-                            options={[
-                                { label: __('Left', 'jankx'), value: 'left' },
-                                { label: __('Center', 'jankx'), value: 'center' },
-                                { label: __('Right', 'jankx'), value: 'right' }
-                            ]}
-                            onChange={(align) => setAttributes({ align: align as any })}
-                        />
-                    )}
-
+                    <SelectControl
+                        label={__('Alignment', 'jankx')}
+                        value={align}
+                        options={[
+                            { label: __('Left', 'jankx'), value: 'left' },
+                            { label: __('Center', 'jankx'), value: 'center' },
+                            { label: __('Right', 'jankx'), value: 'right' }
+                        ]}
+                        onChange={(align) => setAttributes({ align })}
+                    />
                     <SelectControl
                         label={__('Card Style', 'jankx')}
                         value={cardStyle}
@@ -100,30 +112,24 @@ const Edit = ({ attributes, setAttributes }: { attributes: SubmenuAttributes, se
                             { label: __('Detailed', 'jankx'), value: 'detailed' },
                             { label: __('Cards', 'jankx'), value: 'cards' }
                         ]}
-                        onChange={(cardStyle) => setAttributes({ cardStyle: cardStyle as any })}
+                        onChange={(cardStyle) => setAttributes({ cardStyle })}
                     />
                 </PanelBody>
             </InspectorControls>
 
             <div {...blockProps}>
-                <div className="submenu-preview">
-                    <div className="submenu-preview-header">
-                        <Icon icon={LAYOUTS.find(l => l.value === layout)?.icon || Icons.LayoutList} />
-                        <span>{__('Submenu', 'jankx')}</span>
-                        <span className="submenu-type-badge">{submenuType}</span>
-                    </div>
-                    <InnerBlocks
-                        allowedBlocks={['jankx/mega-menu-item']}
-                        renderAppender={() => (
-                            <Button
-                                variant="primary"
-                                isSmall
-                            >
-                                {__('Add Item', 'jankx')}
-                            </Button>
-                        )}
-                    />
-                </div>
+                <InnerBlocks
+                    allowedBlocks={['jankx/mega-menu-item']}
+                    template={[]}
+                    renderAppender={() => (
+                        <Button
+                            onClick={addSubmenuItem}
+                            variant="primary"
+                        >
+                            {__('Add Menu Item', 'jankx')}
+                        </Button>
+                    )}
+                />
             </div>
         </>
     );

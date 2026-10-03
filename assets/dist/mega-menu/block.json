@@ -75,6 +75,10 @@
         "typography": {
             "fontSize": true,
             "lineHeight": true
-        }
-    }
+        },
+        "multiple": true
+    },
+    "allowedBlocks": [
+        "jankx/mega-menu-item"
+    ]
 }

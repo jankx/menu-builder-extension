@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "title": "Mega Menu Item",
     "category": "jankx",
-    "parent": ["jankx/mega-menu"],
+    "parent": ["jankx/mega-menu", "jankx/mega-menu-item"],
     "description": "Individual menu item with mega menu, flyout, dropdown support",
     "keywords": ["menu", "item", "mega", "flyout", "dropdown"],
     "textdomain": "jankx",
@@ -88,5 +88,6 @@
         "html": false,
         "multiple": true,
         "reusable": false
-    }
+    },
+    "allowedBlocks": ["jankx/mega-menu-item"]
 }
