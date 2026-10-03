@@ -5,9 +5,16 @@
     "version": "1.0.0",
     "title": "Mega Menu Submenu",
     "category": "jankx",
-    "parent": ["jankx/mega-menu-item"],
+    "parent": [
+        "jankx/mega-menu-item"
+    ],
     "description": "Submenu container with layout and display settings",
-    "keywords": ["submenu", "dropdown", "flyout", "mega"],
+    "keywords": [
+        "submenu",
+        "dropdown",
+        "flyout",
+        "mega"
+    ],
     "textdomain": "jankx",
     "editorScript": "file:./index.js",
     "editorStyle": "file:./editor.css",

@@ -3,7 +3,7 @@ import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-
 import { PanelBody, TextControl, SelectControl, ButtonGroup, Button } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { useSelect, useDispatch } from '@wordpress/data';
-import { Icons } from '../mega-menu/components/Icons';
+import { Icons, Icon } from '../mega-menu/components/Icons';
 
 interface MenuItemAttributes {
     itemId: string;
@@ -21,10 +21,10 @@ interface MenuItemAttributes {
 }
 
 const MENU_TYPES = [
-    { label: __('Link', 'jankx'), value: 'link', icon: link },
-    { label: __('Dropdown', 'jankx'), value: 'dropdown', icon: chevronDown },
-    { label: __('Flyout', 'jankx'), value: 'flyout', icon: chevronRight },
-    { label: __('Mega Menu', 'jankx'), value: 'mega', icon: button }
+    { label: __('Link', 'jankx'), value: 'link', icon: Icons.Link },
+    { label: __('Dropdown', 'jankx'), value: 'dropdown', icon: Icons.ChevronDown },
+    { label: __('Flyout', 'jankx'), value: 'flyout', icon: Icons.ChevronRight },
+    { label: __('Mega Menu', 'jankx'), value: 'mega', icon: Icons.Grid }
 ];
 
 const Edit = (props: { attributes: MenuItemAttributes, setAttributes: (updates: Partial<MenuItemAttributes>) => void, clientId: string }) => {

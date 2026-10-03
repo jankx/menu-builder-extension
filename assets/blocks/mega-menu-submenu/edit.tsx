@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, RangeControl, ButtonGroup, Button } from '@wordpress/components';
-import { Icons } from '../mega-menu/components/Icons';
+import { Icons, Icon } from '../mega-menu/components/Icons';
 
 interface SubmenuAttributes {
     layout: string;
@@ -13,9 +13,9 @@ interface SubmenuAttributes {
 }
 
 const LAYOUTS = [
-    { label: __('List', 'jankx'), value: 'list', icon: list },
-    { label: __('Grid', 'jankx'), value: 'grid', icon: grid },
-    { label: __('Columns', 'jankx'), value: 'columns', icon: columns }
+    { label: __('List', 'jankx'), value: 'list', icon: Icons.LayoutList },
+    { label: __('Grid', 'jankx'), value: 'grid', icon: Icons.Grid },
+    { label: __('Columns', 'jankx'), value: 'columns', icon: Icons.Columns }
 ];
 
 const Edit = ({ attributes, setAttributes }: { attributes: SubmenuAttributes, setAttributes: (updates: Partial<SubmenuAttributes>) => void }) => {
@@ -108,7 +108,7 @@ const Edit = ({ attributes, setAttributes }: { attributes: SubmenuAttributes, se
             <div {...blockProps}>
                 <div className="submenu-preview">
                     <div className="submenu-preview-header">
-                        <Icon icon={LAYOUTS.find(l => l.value === layout)?.icon || list} />
+                        <Icon icon={LAYOUTS.find(l => l.value === layout)?.icon || Icons.LayoutList} />
                         <span>{__('Submenu', 'jankx')}</span>
                         <span className="submenu-type-badge">{submenuType}</span>
                     </div>

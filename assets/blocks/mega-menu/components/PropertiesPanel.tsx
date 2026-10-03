@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { PanelBody, TextControl, SelectControl, RangeControl, ButtonGroup, Button, TextareaControl } from '@wordpress/components';
-import { Icons, ICON_OPTIONS, DynamicIcon } from './Icons';
+import { Icons, Icon, ICON_OPTIONS, DynamicIcon } from './Icons';
 import { MenuItem } from './TreeEditor';
 
 interface PropertiesPanelProps {
@@ -35,7 +35,7 @@ const PropertiesPanel = ({ item, onUpdate, onClose, onAddChild, onDuplicate, onD
         <div className="properties-panel">
             <div className="properties-panel-header">
                 <div className="properties-panel-title">
-                    <Icon icon={settings} size={16} />
+                    <Icon icon={Icons.Settings} size={16} />
                     <div>
                         <h3>{__('Menu Item Settings', 'jankx')}</h3>
                         <span className="properties-panel-item-label">{item.label || __('Untitled', 'jankx')}</span>
@@ -43,12 +43,12 @@ const PropertiesPanel = ({ item, onUpdate, onClose, onAddChild, onDuplicate, onD
                 </div>
                 <div className="properties-panel-header-actions">
                     {onDuplicate && (
-                        <Button icon={copy} onClick={() => onDuplicate(item.id)} label={__('Duplicate', 'jankx')} />
+                        <Button icon={Icons.Copy} onClick={() => onDuplicate(item.id)} label={__('Duplicate', 'jankx')} />
                     )}
                     {onDelete && (
-                        <Button icon={trash} onClick={() => onDelete(item.id)} label={__('Delete', 'jankx')} isDestructive />
+                        <Button icon={Icons.Trash2} onClick={() => onDelete(item.id)} label={__('Delete', 'jankx')} isDestructive />
                     )}
-                    <Button icon={close} onClick={onClose} label={__('Close', 'jankx')} />
+                    <Button icon={Icons.Close} onClick={onClose} label={__('Close', 'jankx')} />
                 </div>
             </div>
 
@@ -132,7 +132,7 @@ const PropertiesPanel = ({ item, onUpdate, onClose, onAddChild, onDuplicate, onD
                 {canHaveSubmenuLayout && (
                     <PanelBody title={__('Submenu Layout', 'jankx')} initialOpen={false}>
                         <div className="properties-panel-section-header">
-                            <Icon icon={sliders} size={14} />
+                            <Icon icon={Icons.Sliders} size={14} />
                             <div>
                                 <h4>{__('Submenu Layout', 'jankx')}</h4>
                                 <p>
@@ -149,9 +149,9 @@ const PropertiesPanel = ({ item, onUpdate, onClose, onAddChild, onDuplicate, onD
                             <label className="properties-panel-label">{__('Child Display', 'jankx')}</label>
                             <ButtonGroup>
                                 {[
-                                    { value: 'list', label: __('List', 'jankx'), icon: text },
+                                    { value: 'list', label: __('List', 'jankx'), icon: Icons.Text },
                                     { value: 'grid', label: __('Grid', 'jankx'), icon: Icons.Grid },
-                                    { value: 'columns', label: ('Columns', 'jankx') as any, icon: Icons.Columns }
+                                    { value: 'columns', label: __('Columns', 'jankx'), icon: Icons.Columns }
                                 ].map((l) => (
                                     <Button
                                         key={l.value}
@@ -248,7 +248,7 @@ const PropertiesPanel = ({ item, onUpdate, onClose, onAddChild, onDuplicate, onD
 
                         {onAddChild && (
                             <Button
-                                icon={plus}
+                                icon={Icons.Plus}
                                 onClick={() => onAddChild(item.id)}
                                 variant="primary"
                                 className="properties-panel-add-child"

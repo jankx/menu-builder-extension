@@ -1,9 +1,12 @@
 import { __ } from '@wordpress/i18n';
+import type { ComponentType } from 'react';
 
 interface IconProps {
     size?: number;
     className?: string;
 }
+
+export type IconComponent = ComponentType<IconProps>;
 
 const createIcon = (paths: string[]) => {
     const IconComponent = ({ size = 24, className = '' }: IconProps) => (
@@ -74,7 +77,7 @@ export const Icons = {
     Compass: createIcon(['M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z', 'M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z'])
 };
 
-export const ICON_OPTIONS: { name: string; label: string; icon: (props: IconProps) => JSX.Element }[] = [
+export const ICON_OPTIONS: { name: string; label: string; icon: IconComponent }[] = [
     { name: 'ShoppingBag', label: __('Store', 'jankx'), icon: Icons.ShoppingBag },
     { name: 'Zap', label: __('Lightning', 'jankx'), icon: Icons.Zap },
     { name: 'Shield', label: __('Security', 'jankx'), icon: Icons.Shield },
@@ -88,6 +91,15 @@ export const ICON_OPTIONS: { name: string; label: string; icon: (props: IconProp
     { name: 'Layers', label: __('Layers', 'jankx'), icon: Icons.Layers },
     { name: 'Tag', label: __('Tag', 'jankx'), icon: Icons.Tag }
 ];
+
+export const Icon = ({ icon, size = 16, className = '' }: { icon?: IconComponent; size?: number; className?: string }) => {
+    if (!icon) {
+        return null;
+    }
+
+    const IconComp = icon;
+    return <IconComp size={size} className={className} />;
+};
 
 export const DynamicIcon = ({ name, size = 16, className = '' }: { name?: string; size?: number; className?: string }) => {
     if (!name) return null;

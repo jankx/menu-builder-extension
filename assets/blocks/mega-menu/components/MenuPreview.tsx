@@ -1,7 +1,7 @@
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Button, ButtonGroup } from '@wordpress/components';
-import { Icons, DynamicIcon } from './Icons';
+import { Icons, Icon, DynamicIcon } from './Icons';
 import { MenuItem } from './TreeEditor';
 
 interface MenuPreviewProps {

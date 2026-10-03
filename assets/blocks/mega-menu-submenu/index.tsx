@@ -9,7 +9,7 @@ import Edit from './edit';
 import Save from './save';
 
 registerBlockType('jankx/mega-menu-submenu', {
-    icon: <Icon icon={layout} />,
+    icon: Icons.Rows,
     edit: Edit,
     save: Save,
 });

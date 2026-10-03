@@ -17,7 +17,7 @@ class MenuBuilderExtension extends AbstractExtension
 
     public function register_extension_blocks($repository, $app): void
     {
-        $blocks = ["MegaMenuBlock", "MegaMenuItemBlock", "MegaMenuSubmenuBlock"];
+        $blocks = ["MegaMenuBlock", "MegaMenuItemBlock", "MegaMenuSubmenuBlock", "MenuBuilderBlock"];
 
         foreach ($blocks as $blockClass) {
             $fullClass = 'Jankx\Extensions\MenuBuilder\\Blocks\\' . $blockClass;

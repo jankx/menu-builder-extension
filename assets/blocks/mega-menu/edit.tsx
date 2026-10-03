@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, TextControl, SelectControl, ToggleControl, RangeControl, Button } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
-import { Icons } from './components/Icons';
+import { Icons, Icon } from './components/Icons';
 import TreeEditor, { MenuItem } from './components/TreeEditor';
 import MenuPreview from './components/MenuPreview';
 import PropertiesPanel from './components/PropertiesPanel';
@@ -464,11 +464,11 @@ const Edit = ({ attributes, setAttributes }: { attributes: BlockAttributes, setA
             <div className="mega-menu-builder">
                 <div className="mega-menu-builder-header">
                     <h3>
-                        <Icon icon={menu} />
+                        <Icon icon={Icons.Menu} />
                         {__('Mega Menu Builder', 'jankx')}
                     </h3>
                     <Button
-                        icon={plus}
+                        icon={Icons.Plus}
                         onClick={handleAddRoot}
                         variant="primary"
                     >

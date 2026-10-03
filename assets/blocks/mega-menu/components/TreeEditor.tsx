@@ -1,7 +1,7 @@
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Button, TextControl, ButtonGroup } from '@wordpress/components';
-import { Icons, DynamicIcon } from './Icons';
+import { Icons, Icon, DynamicIcon } from './Icons';
 
 export interface MenuItem {
     id: string;
@@ -161,7 +161,7 @@ const TreeEditor = ({ items, onSelect, selectedId, onUpdateStructure }: TreeEdit
                     onClick={() => onSelect(item.id)}
                 >
                     <Button
-                        icon={item.isOpen ? chevronDown : chevronRight}
+                        icon={item.isOpen ? Icons.ChevronDown : Icons.ChevronRight}
                         onClick={(e) => handleToggle(e as any, item.id)}
                         className="tree-editor-toggle"
                         label={item.isOpen ? __('Collapse', 'jankx') : __('Expand', 'jankx')}
@@ -186,11 +186,11 @@ const TreeEditor = ({ items, onSelect, selectedId, onUpdateStructure }: TreeEdit
                     </div>
 
                     <div className="tree-editor-actions">
-                        <Button icon={moveUp} onClick={(e) => handleMove(e as any, item.id, 'up')} label={__('Move up', 'jankx')} />
-                        <Button icon={moveDown} onClick={(e) => handleMove(e as any, item.id, 'down')} label={__('Move down', 'jankx')} />
-                        <Button icon={plus} onClick={(e) => handleAddChild(e as any, item.id)} label={__('Add child', 'jankx')} />
-                        <Button icon={copy} onClick={(e) => handleDuplicate(e as any, item.id)} label={__('Duplicate', 'jankx')} />
-                        <Button icon={trash} onClick={(e) => handleDelete(e as any, item.id)} label={__('Delete', 'jankx')} isDestructive />
+                        <Button icon={Icons.MoveUp} onClick={(e) => handleMove(e as any, item.id, 'up')} label={__('Move up', 'jankx')} />
+                        <Button icon={Icons.MoveDown} onClick={(e) => handleMove(e as any, item.id, 'down')} label={__('Move down', 'jankx')} />
+                        <Button icon={Icons.Plus} onClick={(e) => handleAddChild(e as any, item.id)} label={__('Add child', 'jankx')} />
+                        <Button icon={Icons.Copy} onClick={(e) => handleDuplicate(e as any, item.id)} label={__('Duplicate', 'jankx')} />
+                        <Button icon={Icons.Trash2} onClick={(e) => handleDelete(e as any, item.id)} label={__('Delete', 'jankx')} isDestructive />
                     </div>
                 </div>
 
@@ -213,7 +213,7 @@ const TreeEditor = ({ items, onSelect, selectedId, onUpdateStructure }: TreeEdit
                         placeholder={__('Search menu items...', 'jankx')}
                     />
                     {searchTerm && (
-                        <Button icon={close} onClick={() => setSearchTerm('')} label={__('Clear search', 'jankx')} />
+                        <Button icon={Icons.Close} onClick={() => setSearchTerm('')} label={__('Clear search', 'jankx')} />
                     )}
                 </div>
                 <div className="tree-editor-toolbar-actions">
