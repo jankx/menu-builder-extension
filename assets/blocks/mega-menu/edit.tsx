@@ -31,8 +31,8 @@ const Edit = ({ attributes, setAttributes }: any) => {
     } = attributes;
 
     const blockProps = useBlockProps({
-        className: menuClass,
-        id: menuId
+        className: 'jankx-mega-menu',
+        id: menuId || undefined
     });
 
     const TEMPLATE = [
@@ -45,7 +45,7 @@ const Edit = ({ attributes, setAttributes }: any) => {
     ];
 
     return (
-        <div {...blockProps}>
+        <nav {...blockProps}>
             <InspectorControls>
                 <PanelBody title={__('Responsive Settings', 'jankx')} initialOpen={true}>
                     <ToggleControl
@@ -113,23 +113,27 @@ const Edit = ({ attributes, setAttributes }: any) => {
                 </PanelBody>
             </InspectorControls>
 
-            <div className="mega-menu-builder">
-                <div className="mega-menu-builder-body">
-                    <InnerBlocks
-                        allowedBlocks={['jankx/mega-menu-item']}
-                        template={TEMPLATE}
-                        renderAppender={() => (
-                            <Button
-                                icon={Icons.Plus}
-                                variant="secondary"
-                            >
-                                {__('Add Menu Item', 'jankx')}
-                            </Button>
-                        )}
-                    />
-                </div>
+            <div className="mega-menu-list">
+                <InnerBlocks
+                    allowedBlocks={['jankx/mega-menu-item']}
+                    template={TEMPLATE as any}
+                    renderAppender={() => (
+                        <Button
+                            icon={Icons.Plus}
+                            variant="secondary"
+                        >
+                            {__('Add Menu Item', 'jankx')}
+                        </Button>
+                    )}
+                    layout={{
+                        type: 'flex',
+                        orientation: 'horizontal',
+                        flexWrap: 'nowrap',
+                        justifyContent: 'left',
+                    } as any}
+                />
             </div>
-        </div>
+        </nav>
     );
 };
 

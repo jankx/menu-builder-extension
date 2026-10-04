@@ -42,8 +42,10 @@ const Save = ({ attributes }: { attributes: MenuItemAttributes }) => {
         cssClass
     } = attributes;
 
+    const hasChildren = menuType !== 'link';
+
     const blockProps = useBlockProps.save({
-        className: `mega-menu-item mega-menu-item-${menuType} ${cssClass}`,
+        className: `mega-menu-item mega-menu-item-${menuType} ${hasChildren ? 'has-children' : ''} ${cssClass}`,
         'data-item-id': itemId,
         'data-menu-type': menuType,
         'data-layout': layout,
@@ -66,7 +68,7 @@ const Save = ({ attributes }: { attributes: MenuItemAttributes }) => {
         linkProps.rel = rel;
     }
 
-    const hasChildren = menuType !== 'link';
+
 
     return (
         <li {...blockProps}>

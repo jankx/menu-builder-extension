@@ -258,45 +258,31 @@ const Edit = ({ attributes, setAttributes, clientId }: any) => {
             </InspectorControls>
 
             <div {...blockProps}>
-                {menuType === 'link' ? (
-                    <a href={url || '#'} className="menu-item-link">
-                        {icon && <span className="menu-item-icon">{icon}</span>}
-                        <span className="menu-item-label">{label || __('Menu Item', 'jankx')}</span>
-                        {badge && (
-                            <span className={`menu-item-badge menu-item-badge-${badgeColor}`}>
-                                {badge}
-                            </span>
-                        )}
-                    </a>
-                ) : (
-                    <>
-                        <div className="menu-item-has-submenu">
-                            <span className="menu-item-link">
-                                {icon && <span className="menu-item-icon">{icon}</span>}
-                                <span className="menu-item-label">{label || __('Menu Item', 'jankx')}</span>
-                                {badge && (
-                                    <span className={`menu-item-badge menu-item-badge-${badgeColor}`}>
-                                        {badge}
-                                    </span>
-                                )}
-                                <span className="submenu-toggle" />
-                            </span>
-                        </div>
-                        <div className="mega-menu-submenu-content">
-                            <InnerBlocks
-                                allowedBlocks={['jankx/mega-menu-item']}
-                                template={[]}
-                                renderAppender={() => (
-                                    <Button
-                                        onClick={addSubmenuItem}
-                                        variant="secondary"
-                                    >
-                                        {__('Add Submenu Item', 'jankx')}
-                                    </Button>
-                                )}
-                            />
-                        </div>
-                    </>
+                <a href={url || '#'} className="menu-item-link" onClick={(e) => e.preventDefault()}>
+                    {icon && <span className="menu-item-icon">{icon}</span>}
+                    <span className="menu-item-label">{label || __('Menu Item', 'jankx')}</span>
+                    {badge && (
+                        <span className={`menu-item-badge menu-item-badge-${badgeColor}`}>
+                            {badge}
+                        </span>
+                    )}
+                    {hasChildren && <span className="submenu-toggle" />}
+                </a>
+                {hasChildren && (
+                    <div className="mega-menu-submenu-editor" style={{ border: '1px dashed #0073aa', padding: '8px', marginTop: '4px', borderRadius: '4px', background: '#f0f7ff' }}>
+                        <InnerBlocks
+                            allowedBlocks={['jankx/mega-menu-item']}
+                            template={[]}
+                            renderAppender={() => (
+                                <Button
+                                    onClick={addSubmenuItem}
+                                    variant="secondary"
+                                >
+                                    {__('Add Submenu Item', 'jankx')}
+                                </Button>
+                            )}
+                        />
+                    </div>
                 )}
             </div>
         </>
