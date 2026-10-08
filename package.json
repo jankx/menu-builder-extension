@@ -1,0 +1,27 @@
+{
+    "name": "@jankx/menu-builder",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Polymorphic Menu Builder Gutenberg block extension",
+    "scripts": {
+        "build": "wp-scripts build",
+        "start": "wp-scripts start",
+        "lint": "tsc --noEmit"
+    },
+    "dependencies": {
+        "lucide-react": "^0.546.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.0",
+        "@types/react-dom": "^18.3.0",
+        "@types/wordpress__block-editor": "^15.0.7",
+        "@wordpress/block-editor": "^18.1.0",
+        "@wordpress/blocks": "^16.2.0",
+        "@wordpress/icons": "^18.0.0",
+        "@wordpress/scripts": "^30.23.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.0"
+    }
+}

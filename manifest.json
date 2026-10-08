@@ -1,0 +1,13 @@
+{
+    "name": "Polymorphic Menu Builder",
+    "extension_id": "menu-builder",
+    "version": "1.0.0",
+    "description": "Gutenberg block for building polymorphic navigation menus (mega, half-mega, dropdown, flyout) with mobile drawer modes and vertical sidebar.",
+    "author": "Jankx",
+    "enabled": true,
+    "auto_activate": true,
+    "caller": {
+        "file": "MenuBuilderExtension.php",
+        "class": "Jankx\\Extensions\\MenuBuilder\\MenuBuilderExtension"
+    }
+}

@@ -1,0 +1,1158 @@
+/* ==========================================================================
+   Polymorphic Menu Builder — shared styles (editor preview + frontend)
+   Extracted & scoped from the standalone studio's index.css.
+   ========================================================================== */
+
+/* Design tokens (scoped to the block root instead of :root) */
+.wp-block-jankx-polymorphic-menu {
+  --bg-workspace: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-promo-card: #f0f6ff;
+  --bg-dark: #0f172a;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-hairline: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --accent-primary: #1570ef;
+  --accent-hover: #175cd3;
+  --accent-soft: #eff8ff;
+  --danger-color: #dc2626;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Block-level reset (originally a global * / body reset) */
+.wp-block-jankx-polymorphic-menu *,
+.wp-block-jankx-polymorphic-menu *::before,
+.wp-block-jankx-polymorphic-menu *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wp-block-jankx-polymorphic-menu {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gb-editor-shell {
+  background-color: var(--bg-workspace);
+}
+
+.wp-block-jankx-polymorphic-menu button,
+.wp-block-jankx-polymorphic-menu input,
+.wp-block-jankx-polymorphic-menu textarea {
+  font-family: inherit;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.poly-push-drawer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: #ffffff;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  transition: transform 240ms var(--ease-out-expo);
+}
+
+.poly-push-drawer--left {
+  left: 0;
+  border-right: 1px solid var(--border-strong);
+  transform: translateX(-100%);
+}
+
+.poly-push-drawer--right {
+  right: 0;
+  border-left: 1px solid var(--border-strong);
+  transform: translateX(100%);
+}
+
+.poly-push-drawer.is-open {
+  transform: translateX(0);
+}
+
+.poly-push-drawer-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.poly-drawer-close-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: 6px;
+  padding: 5px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: inline-flex;
+}
+
+.poly-push-drawer-tag {
+  padding: 6px 16px;
+  background-color: var(--accent-soft);
+  color: var(--accent-primary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.poly-push-drawer-body {
+  padding: 12px 14px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.poly-push-drawer-footer {
+  padding: 12px 14px;
+  border-top: 1px solid var(--border-hairline);
+}
+/* Horizontal Header & Anchored Submenus (Max Mega Menu Style) */
+.poly-site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 72px;
+  background-color: var(--bg-surface);
+  border-bottom: 2px solid var(--accent-primary);
+  position: relative;
+  z-index: 35;
+}
+
+.poly-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.poly-brand-cube {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poly-brand-wordmark {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.poly-primary-nav {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.poly-nav-item-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.poly-nav-link {
+  background: transparent;
+  border: none;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.poly-nav-link:hover,
+.poly-nav-item-wrap.is-expanded .poly-nav-link,
+.poly-nav-item-wrap.is-selected .poly-nav-link {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.poly-nav-chevron {
+  transition: transform 160ms var(--ease-out-expo);
+}
+
+.poly-nav-chevron.is-rotated {
+  transform: rotate(180deg);
+}
+.poly-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.poly-login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.poly-login-link:hover {
+  color: var(--text-primary);
+}
+
+.poly-header-cta {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.poly-header-cta:hover {
+  background-color: var(--accent-hover);
+}
+
+.poly-mobile-toggle-btn {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  padding: 7px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+/* ==========================================================================
+   4. DIRECT ANCHORED SUBMENUS (FLUSH BELOW NAV BAR / MENU ITEM)
+   ========================================================================== */
+.poly-submenu {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 28px 32px;
+  box-shadow: 0 20px 32px -8px rgba(15, 23, 42, 0.08);
+  z-index: 40;
+}
+
+/* Mega Menu anchored flush across full header bar width */
+.poly-submenu.anchor-bar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-top: none;
+}
+
+/* Dropdown, Half-Mega & Flyout anchored directly underneath the specific Menu Item */
+.poly-submenu.anchor-item {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  border: 1px solid var(--border-hairline);
+  border-top: 2px solid var(--accent-primary);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.poly-submenu--half-mega.anchor-item {
+  width: 640px;
+}
+
+.poly-submenu--dropdown.anchor-item {
+  width: 320px;
+  padding: 18px 20px;
+}
+
+.poly-submenu--flyout.anchor-item {
+  width: 620px;
+  padding: 20px 24px;
+}
+
+.poly-submenu-grid {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+}
+
+.poly-submenu-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+/* Promo Card Column (like "Free or Pro?" box in screenshot) */
+.poly-submenu-column.is-promo-card {
+  background-color: var(--bg-promo-card);
+  padding: 22px 20px;
+  border-radius: 12px;
+}
+
+.poly-submenu-column.is-col-selected {
+  border-color: var(--accent-primary);
+}
+.poly-column-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.poly-submenu-footer {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+/* ==========================================================================
+   5. VERTICAL SIDEBAR NAVIGATION MODE
+   ========================================================================== */
+.poly-vertical-workspace {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: 620px;
+}
+
+.poly-vertical-sidebar {
+  background-color: #ffffff;
+  border-right: 2px solid var(--accent-primary);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 30;
+}
+
+.poly-vertical-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.poly-vertical-kicker {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.poly-vertical-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.poly-vertical-item-wrap {
+  position: relative;
+}
+
+.poly-vertical-link {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.poly-vertical-link:hover,
+.poly-vertical-item-wrap.is-expanded .poly-vertical-link {
+  background-color: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+.poly-vertical-link-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.poly-vertical-link-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.poly-vertical-link-badge {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Vertical Flyout Right Panel */
+.poly-vertical-flyout-pane {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 18px);
+  width: 740px;
+  z-index: 45;
+}
+
+.poly-vertical-flyout-pane .poly-submenu {
+  border: 1px solid var(--border-hairline);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 10px;
+}
+
+/* Vertical Inline Accordion Panel */
+.poly-vertical-accordion-pane {
+  margin-top: 6px;
+  padding-left: 8px;
+}
+
+.poly-vertical-accordion-pane .poly-submenu {
+  padding: 12px;
+  border: 1px solid var(--border-hairline);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.poly-vertical-accordion-pane .poly-submenu-grid {
+  grid-template-columns: 1fr !important;
+  gap: 14px;
+}
+
+.poly-vertical-footer {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.poly-vertical-main-content {
+  background-color: var(--bg-subtle);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+/* ==========================================================================
+   6. CORE BLOCK RENDERER (MAX MEGA MENU TYPOGRAPHY & HOVER)
+   ========================================================================== */
+.gb-core-block-wrapper {
+  position: relative;
+  border-radius: 7px;
+  border: 1px solid transparent;
+}
+.gb-block-heading {
+  padding: 4px 10px;
+}
+
+.gb-heading-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #475569;
+}
+
+.gb-heading-text--lg {
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.gb-block-nav-link {
+  display: block;
+  padding: 9px 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-radius: 7px;
+  transition: background-color 140ms var(--ease-out-expo), color 140ms var(--ease-out-expo);
+}
+
+.gb-block-nav-link:hover {
+  background-color: var(--accent-soft);
+}
+
+.gb-block-nav-link:hover .gb-nav-link-title {
+  color: var(--accent-primary);
+}
+
+.gb-nav-link-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gb-nav-link-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.gb-nav-link-pro-tag {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1.2;
+}
+
+.gb-nav-link-arrow {
+  color: var(--accent-primary);
+}
+
+.gb-nav-link-desc {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.gb-block-paragraph {
+  padding: 4px 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.gb-block-buttons {
+  padding: 6px 10px;
+}
+
+.gb-cta-btn {
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.gb-cta-btn--primary {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border: none;
+}
+
+.gb-cta-btn--primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.gb-cta-btn--outline {
+  background-color: #ffffff;
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.gb-block-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.gb-search-icon {
+  color: var(--text-muted);
+}
+
+.gb-search-input {
+  border: none;
+  width: 100%;
+  font-size: 12.5px;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.gb-search-input:focus {
+  outline: none;
+}
+
+.gb-block-image {
+  padding: 8px;
+  border: 1px solid var(--border-hairline);
+  border-radius: 7px;
+  background-color: var(--bg-subtle);
+}
+
+.gb-image-frame {
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.media-artwork {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.media-artwork--architecture {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+}
+
+.media-artwork--analytics {
+  background: linear-gradient(135deg, #1e293b, #0f766e);
+}
+
+.media-artwork--commerce {
+  background: linear-gradient(135deg, #1e1b4b, #1d4ed8);
+}
+
+.media-artwork--editorial {
+  background: linear-gradient(135deg, #27272a, #52525b);
+}
+
+.gb-image-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.gb-image-caption {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.gb-block-posts {
+  padding: 6px 8px;
+}
+
+.gb-posts-header {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.gb-posts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gb-post-item {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.gb-post-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.gb-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  padding-left: 19px;
+}
+
+.gb-block-separator {
+  border: none;
+  border-top: 1px solid var(--border-hairline);
+  margin: 8px 0;
+}
+/* Flyout Menu Layout */
+.poly-flyout-shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.poly-flyout-primary {
+  border-right: 1px solid var(--border-hairline);
+  padding-right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.poly-flyout-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.poly-flyout-row {
+  padding: 9px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.poly-flyout-row:hover,
+.poly-flyout-row.is-active {
+  background-color: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+.poly-flyout-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.poly-flyout-row-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.poly-flyout-row-desc {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.poly-flyout-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.poly-flyout-sublist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.poly-flyout-sublink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--border-hairline);
+}
+
+.poly-flyout-sublink:hover {
+  border-color: var(--accent-primary);
+  background-color: var(--accent-soft);
+}
+
+.poly-flyout-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.poly-compact-surface {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.poly-drill-kicker {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.poly-accordion-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.poly-accordion-item {
+  border: 1px solid var(--border-hairline);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.poly-accordion-trigger {
+  width: 100%;
+  background-color: var(--bg-surface);
+  border: none;
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+}
+
+.poly-accordion-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.poly-accordion-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.poly-accordion-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.poly-accordion-body {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border-hairline);
+  background-color: var(--bg-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.poly-compact-col-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.poly-compact-col-box.is-promo-card {
+  background-color: var(--bg-promo-card);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.poly-compact-col-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.poly-drill-back {
+  background: transparent;
+  border: none;
+  color: var(--accent-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.poly-drill-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   Frontend (server-rendered) behavior & overrides
+   ========================================================================== */
+
+/* Submenu panels are rendered server-side but hidden until view.js toggles */
+.poly-frontend .poly-submenu {
+  display: none;
+}
+
+.poly-frontend .poly-submenu.is-open {
+  display: block;
+}
+
+/* Frontend scrim (editor uses .poly-page-backdrop instead) */
+.poly-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 100000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms var(--ease-out-expo), visibility 240ms;
+}
+
+.poly-scrim.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Breakpoints mirror the studio: compact surface ≤1023px, full nav ≥1024px */
+@media (min-width: 1024px) {
+  .poly-frontend .poly-mobile-toggle-btn,
+  .poly-frontend .poly-compact-surface,
+  .poly-frontend .poly-push-drawer,
+  .poly-frontend .poly-scrim {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .poly-frontend .poly-primary-nav,
+  .poly-frontend .poly-login-link {
+    display: none;
+  }
+}
+
+/* Vertical variant: horizontal header folds back to compact on small screens,
+   sidebar hides entirely — JS falls back to the header + compact surface. */
+@media (min-width: 1024px) {
+  .poly-frontend--vertical .poly-site-header {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .poly-frontend--vertical .poly-vertical-sidebar {
+    display: none;
+  }
+}
+
+/* Push-In drawer: fixed overlay on the frontend (absolute inside the stage
+   in the editor). Scrim covers the pushed body margin. */
+.poly-frontend .poly-push-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: min(280px, 85vw);
+  z-index: 100001;
+  box-shadow: 0 0 40px rgba(15, 23, 42, 0.25);
+}
+
+.poly-frontend .poly-push-drawer--left {
+  left: 0;
+  right: auto;
+}
+
+.poly-frontend .poly-push-drawer--right {
+  right: 0;
+  left: auto;
+}
+
+/* Body push via margin (transform on <body> would break position:fixed
+   descendants, including the drawer itself). */
+body.poly-menu-pushed {
+  overflow-x: hidden;
+  transition: margin-left 240ms var(--ease-out-expo),
+    margin-right 240ms var(--ease-out-expo);
+}
+
+body.poly-menu-pushed.poly-menu-push-left {
+  margin-left: min(280px, 85vw);
+}
+
+body.poly-menu-pushed.poly-menu-push-right {
+  margin-right: min(280px, 85vw);
+}
+
+/* Fullscreen-grid compact variant covers the viewport */
+.poly-frontend .poly-compact-surface--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  overflow-y: auto;
+  border: none;
+  border-radius: 0;
+}
+
+/* Sticky header is driven by JS (the block box alone is too short for
+   position: sticky to travel) */
+.poly-frontend--sticky .poly-site-header.is-stuck {
+  position: fixed;
+  top: var(--wp-admin--admin-bar--height, 0px);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Frontend tap targets on touch devices */
+@media (pointer: coarse) {
+  .poly-frontend .poly-nav-link,
+  .poly-frontend .poly-mobile-toggle-btn,
+  .poly-frontend .poly-cta-button {
+    min-height: 44px;
+  }
+}
+
+/* ==========================================================================
+   Frontend interaction states (JS-driven — the editor renders these
+   conditionally via React, the frontend keeps them in the DOM)
+   ========================================================================== */
+
+/* Compact panel: hidden until the mobile toggle opens it */
+.poly-frontend .poly-compact-surface {
+  display: none;
+}
+
+.poly-frontend .poly-compact-surface.is-open {
+  display: block;
+}
+
+.poly-compact-close-btn {
+  display: none;
+}
+
+.poly-frontend .poly-compact-surface--fullscreen .poly-compact-close-btn {
+  display: inline-flex;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.poly-frontend .poly-compact-surface--fullscreen {
+  padding-top: 60px;
+}
+
+/* Accordion bodies stay in the DOM but closed */
+.poly-frontend .poly-accordion-body {
+  display: none;
+}
+
+.poly-frontend .poly-accordion-item.is-open .poly-accordion-body {
+  display: flex;
+}
+
+.poly-frontend .poly-accordion-item.is-open .poly-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/* Vertical submenu panes */
+.poly-frontend .poly-vertical-flyout-pane,
+.poly-frontend .poly-vertical-accordion-pane {
+  display: none;
+}
+
+.poly-frontend .poly-vertical-flyout-pane.is-open,
+.poly-frontend .poly-vertical-accordion-pane.is-open {
+  display: block;
+}
+
+/* The pane is the submenu container in vertical mode — reveal its inner
+   submenu when the pane opens (the generic .poly-submenu hide rule above
+   would otherwise keep it collapsed). */
+.poly-frontend .poly-vertical-flyout-pane.is-open .poly-submenu,
+.poly-frontend .poly-vertical-accordion-pane.is-open .poly-submenu {
+  display: block;
+}
+
+/* Vertical variant on the frontend: the block sits inside normal page flow,
+   so the sidebar is pinned to the left of the viewport and the page body is
+   pushed right (margin, like the push drawer) to keep content beside it. */
+@media (min-width: 1024px) {
+  .poly-frontend--vertical .poly-vertical-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(300px, 85vw);
+    max-width: none;
+    overflow-y: auto;
+    z-index: 60;
+    box-shadow: 12px 0 32px rgba(15, 23, 42, 0.08);
+  }
+
+  /* The flyout pane opens to the right of the viewport-pinned sidebar; it is
+     positioned against the viewport (top is refined by JS on open) because the
+     sidebar's own overflow would clip it. */
+  .poly-frontend--vertical .poly-vertical-flyout-pane {
+    position: fixed;
+    left: calc(min(300px, 85vw) + 18px);
+    top: 0;
+    max-width: calc(100vw - min(300px, 85vw) - 36px);
+    overflow-y: auto;
+  }
+
+  body.poly-vertical-sidebar-pushed {
+    margin-left: min(300px, 85vw);
+    overflow-x: hidden;
+    transition: margin-left 240ms var(--ease-out-expo);
+  }
+}
+
+/* Flyout secondary panels: only the active branch shows */
+.poly-frontend .poly-flyout-secondary {
+  display: none;
+}
+
+.poly-frontend .poly-flyout-secondary.is-active {
+  display: flex;
+}
+
+/* Mobile toggle open/closed label swap */
+.poly-frontend .poly-mobile-toggle-btn .poly-toggle-close {
+  display: none;
+}
+
+.poly-frontend .poly-mobile-toggle-btn.is-open .poly-toggle-open {
+  display: none;
+}
+
+.poly-frontend .poly-mobile-toggle-btn.is-open .poly-toggle-close {
+  display: inline-flex;
+}
+
+/* Panels anchored to the header need the header as positioning context */
+.poly-frontend .poly-site-header {
+  position: relative;
+}

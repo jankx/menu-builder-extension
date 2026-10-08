@@ -1,0 +1,499 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "jankx/polymorphic-menu",
+  "version": "1.0.0",
+  "title": "Polymorphic Menu Builder",
+  "category": "jankx",
+  "description": "Xây dựng menu điều hướng phẳng (mega, half-mega, dropdown, flyout) với drawer mobile và thanh sidebar dọc ngay trong editor.",
+  "keywords": [
+    "menu",
+    "navigation",
+    "mega menu",
+    "flyout",
+    "polymorphic"
+  ],
+  "textdomain": "jankx",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "schema": {
+      "type": "object",
+      "default": {
+        "schemaVersion": "2.5.0-gutenberg",
+        "blockName": "core/navigation-polymorphic-builder",
+        "attributes": {
+          "menuTitle": "Primary Header Navigation",
+          "brandName": "max mega menu",
+          "ctaLabel": "Get Pro",
+          "ctaUrl": "/pro",
+          "orientation": "horizontal",
+          "verticalExpandMode": "flyout-right",
+          "stickyHeader": true,
+          "mobileTransform": "push-in-left",
+          "widescreenMaxWidth": 1380,
+          "surfaceTheme": "light",
+          "gapPx": 28
+        },
+        "items": [
+          {
+            "id": "nav_features",
+            "label": "Features",
+            "url": "/features",
+            "submenuType": "mega",
+            "layoutMode": "grid",
+            "columnsCount": 4,
+            "widthPreset": "full",
+            "trigger": "hover",
+            "featuredNote": "Hiển thị Submenu bám sát ngay bên dưới thanh điều hướng kèm đường viền xanh đặc trưng.",
+            "columns": [
+              {
+                "id": "col_f1",
+                "title": "BUILD",
+                "span": 1,
+                "blocks": [
+                  {
+                    "id": "b_101",
+                    "blockName": "core/heading",
+                    "attributes": {
+                      "title": "BUILD",
+                      "level": 4
+                    }
+                  },
+                  {
+                    "id": "b_102",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Mega menus",
+                      "description": "Columns, rows and widgets",
+                      "url": "/features/mega-menus"
+                    }
+                  },
+                  {
+                    "id": "b_103",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Flyout menus",
+                      "description": "Classic multi-level dropdowns",
+                      "url": "/features/flyout-menus"
+                    }
+                  },
+                  {
+                    "id": "b_104",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Tabbed mega menus",
+                      "description": "Tabs inside a mega menu",
+                      "url": "/features/tabbed-mega",
+                      "badgeText": "PRO"
+                    }
+                  },
+                  {
+                    "id": "b_105",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Vertical & accordion",
+                      "description": "For sidebars and long menus",
+                      "url": "/features/vertical-accordion",
+                      "badgeText": "PRO"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "col_f2",
+                "title": "STYLE & MOBILE",
+                "span": 1,
+                "blocks": [
+                  {
+                    "id": "b_201",
+                    "blockName": "core/heading",
+                    "attributes": {
+                      "title": "STYLE & MOBILE",
+                      "level": 4
+                    }
+                  },
+                  {
+                    "id": "b_202",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Theme editor",
+                      "description": "100+ styling settings",
+                      "url": "/features/theme-editor"
+                    }
+                  },
+                  {
+                    "id": "b_203",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Mobile menu",
+                      "description": "Off-canvas push-in or slide down",
+                      "url": "/features/mobile-menu"
+                    }
+                  },
+                  {
+                    "id": "b_204",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Sticky menu",
+                      "description": "Stays visible as you scroll",
+                      "url": "/features/sticky-menu",
+                      "badgeText": "PRO"
+                    }
+                  },
+                  {
+                    "id": "b_205",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Image swap",
+                      "description": "Change an image on hover",
+                      "url": "/features/image-swap",
+                      "badgeText": "PRO"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "col_f3",
+                "title": "MORE IN PRO",
+                "span": 1,
+                "blocks": [
+                  {
+                    "id": "b_301",
+                    "blockName": "core/heading",
+                    "attributes": {
+                      "title": "MORE IN PRO",
+                      "level": 4
+                    }
+                  },
+                  {
+                    "id": "b_302",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Menu logo & search box",
+                      "url": "/pro/logo-search"
+                    }
+                  },
+                  {
+                    "id": "b_303",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Menu item badges",
+                      "url": "/pro/badges"
+                    }
+                  },
+                  {
+                    "id": "b_304",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Roles & restrictions",
+                      "url": "/pro/roles"
+                    }
+                  },
+                  {
+                    "id": "b_305",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Sliding mobile sub menus",
+                      "url": "/pro/sliding-mobile"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "col_f4",
+                "title": "PROMO CARD",
+                "span": 1,
+                "isHighlightedCard": true,
+                "blocks": [
+                  {
+                    "id": "b_401",
+                    "blockName": "core/heading",
+                    "attributes": {
+                      "title": "Free or Pro?",
+                      "level": 3
+                    }
+                  },
+                  {
+                    "id": "b_402",
+                    "blockName": "core/paragraph",
+                    "attributes": {
+                      "description": "Everything in the free plugin, plus sticky, tabbed and vertical menus, icons and per-item styling in Pro."
+                    }
+                  },
+                  {
+                    "id": "b_403",
+                    "blockName": "core/buttons",
+                    "attributes": {
+                      "buttonLabel": "Compare Free and Pro",
+                      "buttonVariant": "primary",
+                      "url": "/compare"
+                    }
+                  },
+                  {
+                    "id": "b_404",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Try the live demo",
+                      "url": "/demo"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "nav_documentation",
+            "label": "Documentation",
+            "url": "/documentation",
+            "submenuType": "half-mega",
+            "layoutMode": "grid",
+            "columnsCount": 2,
+            "widthPreset": "760px",
+            "trigger": "hover",
+            "featuredNote": "Half-Mega Menu neo trực tiếp ngay bên dưới mục Documentation.",
+            "columns": [
+              {
+                "id": "col_s1",
+                "title": "GETTING STARTED",
+                "span": 1,
+                "blocks": [
+                  {
+                    "id": "b_s1",
+                    "blockName": "core/heading",
+                    "attributes": {
+                      "title": "GETTING STARTED",
+                      "level": 4
+                    }
+                  },
+                  {
+                    "id": "b_s2",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Installation & Setup Guide",
+                      "description": "Cài đặt và nhúng Gutenberg Block trong 3 phút",
+                      "url": "/docs/install"
+                    }
+                  },
+                  {
+                    "id": "b_s3",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Configuring Mobile Push-in Drawer",
+                      "description": "Tùy chỉnh hiệu ứng trượt đẩy trang trên di động",
+                      "url": "/docs/mobile-push"
+                    }
+                  },
+                  {
+                    "id": "b_s4",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Vertical Sidebar Navigation",
+                      "description": "Chuyển đổi menu ngang sang dọc cho tài liệu và E-commerce",
+                      "url": "/docs/vertical"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "col_s2",
+                "title": "DEVELOPER API",
+                "span": 1,
+                "isHighlightedCard": true,
+                "blocks": [
+                  {
+                    "id": "b_s5",
+                    "blockName": "core/search",
+                    "attributes": {
+                      "placeholder": "Tra cứu nhanh tài liệu..."
+                    }
+                  },
+                  {
+                    "id": "b_s6",
+                    "blockName": "core/paragraph",
+                    "attributes": {
+                      "description": "Hỗ trợ xuất JSON Schema chuẩn Gutenberg để tích hợp với mọi Headless frontend."
+                    }
+                  },
+                  {
+                    "id": "b_s7",
+                    "blockName": "core/buttons",
+                    "attributes": {
+                      "buttonLabel": "Xem REST API Reference",
+                      "buttonVariant": "outline",
+                      "url": "/docs/api"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "nav_flyout_demo",
+            "label": "Hierarchy",
+            "url": "/hierarchy",
+            "submenuType": "flyout",
+            "layoutMode": "list",
+            "columnsCount": 1,
+            "widthPreset": "auto",
+            "trigger": "hover",
+            "columns": [
+              {
+                "id": "col_d1",
+                "title": "Quick Links",
+                "span": 1,
+                "blocks": [
+                  {
+                    "id": "b_d1",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Cấu hình JSON Schema",
+                      "description": "Định dạng chuẩn block.json của Gutenberg",
+                      "url": "/devs/json-schema"
+                    }
+                  }
+                ]
+              }
+            ],
+            "flyoutItems": [
+              {
+                "id": "fly_1",
+                "label": "SDK & Thư viện Kết nối",
+                "url": "/devs/sdks",
+                "description": "Tích hợp vào React, Next.js, Astro, Vue",
+                "children": [
+                  {
+                    "id": "fly_1_1",
+                    "label": "React Block Renderer",
+                    "url": "/devs/sdks/react",
+                    "meta": "v4.2"
+                  },
+                  {
+                    "id": "fly_1_2",
+                    "label": "Next.js App Router Adapter",
+                    "url": "/devs/sdks/nextjs",
+                    "meta": "SSR"
+                  },
+                  {
+                    "id": "fly_1_3",
+                    "label": "Pure CSS Token Generator",
+                    "url": "/devs/sdks/css-tokens",
+                    "meta": "Zero-dep"
+                  }
+                ]
+              },
+              {
+                "id": "fly_2",
+                "label": "Hệ thống REST & GraphQL API",
+                "url": "/devs/api",
+                "description": "Truy vấn cây menu và danh sách Core Blocks",
+                "children": [
+                  {
+                    "id": "fly_2_1",
+                    "label": "Endpoint /wp-json/menus/v2",
+                    "url": "/devs/api/rest",
+                    "meta": "REST"
+                  },
+                  {
+                    "id": "fly_2_2",
+                    "label": "GraphQL Navigation Resolver",
+                    "url": "/devs/api/graphql",
+                    "meta": "GraphQL"
+                  },
+                  {
+                    "id": "fly_2_3",
+                    "label": "Webhook Đồng bộ Tức thời",
+                    "url": "/devs/api/webhooks",
+                    "meta": "Events"
+                  }
+                ]
+              },
+              {
+                "id": "fly_3",
+                "label": "CLI & Công cụ Kiểm thử",
+                "url": "/devs/cli",
+                "description": "Kiểm tra tính hợp lệ của schema ngay dưới local",
+                "children": [
+                  {
+                    "id": "fly_3_1",
+                    "label": "Trình biên dịch Block JSON",
+                    "url": "/devs/cli/compiler",
+                    "meta": "CLI"
+                  },
+                  {
+                    "id": "fly_3_2",
+                    "label": "Kiểm thử Đáp ứng Đa màn hình",
+                    "url": "/devs/cli/viewport-test",
+                    "meta": "Test"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "nav_support",
+            "label": "Support",
+            "url": "/support",
+            "submenuType": "dropdown",
+            "layoutMode": "list",
+            "columnsCount": 1,
+            "widthPreset": "auto",
+            "trigger": "hover",
+            "columns": [
+              {
+                "id": "col_r1",
+                "title": "Danh mục Hỗ trợ",
+                "span": 1,
+                "blocks": [
+                  {
+                    "id": "b_r1",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Trung tâm Trợ giúp Kỹ thuật",
+                      "description": "Giải đáp các câu hỏi về cấu hình Mega Menu",
+                      "url": "/support/help-center"
+                    }
+                  },
+                  {
+                    "id": "b_r2",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Gửi yêu cầu Hỗ trợ (Ticket)",
+                      "description": "Phản hồi ưu tiên trong vòng 2 giờ làm việc",
+                      "url": "/support/ticket",
+                      "badgeText": "PRO"
+                    }
+                  },
+                  {
+                    "id": "b_r3",
+                    "blockName": "core/separator",
+                    "attributes": {}
+                  },
+                  {
+                    "id": "b_r4",
+                    "blockName": "core/navigation-link",
+                    "attributes": {
+                      "title": "Diễn đàn Cộng đồng WordPress",
+                      "description": "Chia sẻ mẫu JSON Menu thực tế",
+                      "url": "/support/community"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  }
+}
