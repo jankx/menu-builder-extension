@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "jankx/polymorphic-menu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Polymorphic Menu Builder",
   "category": "jankx",
   "description": "Xây dựng menu điều hướng phẳng (mega, half-mega, dropdown, flyout) với drawer mobile và thanh sidebar dọc ngay trong editor.",

@@ -42,6 +42,14 @@
 			if (local) {
 				return local;
 			}
+			/* Vertical mode: the submenu lives inside the pane wrapper. */
+			var vPane = wrap.querySelector(
+				':scope > .poly-vertical-flyout-pane, :scope > .poly-vertical-accordion-pane'
+			);
+			if (vPane) {
+				var vSub = vPane.querySelector(':scope > .poly-submenu');
+				return vSub || vPane;
+			}
 			var id = wrap.getAttribute('data-item-id');
 			if (id) {
 				var mega = qs('[data-mega-id="' + id + '"] .poly-submenu', root);
