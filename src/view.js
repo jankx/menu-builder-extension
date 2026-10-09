@@ -21,14 +21,6 @@
 		var isVertical = root.classList.contains('poly-frontend--vertical');
 		var desktopMq = window.matchMedia('(min-width: 1024px)');
 
-		function applyVerticalPush() {
-			document.body.classList.toggle(
-				'poly-vertical-sidebar-pushed',
-				!!isVertical && desktopMq.matches
-			);
-		}
-		applyVerticalPush();
-
 		var toggleBtn = qs('[data-action="toggle-compact"]', root);
 		var compact = qs('[data-compact-surface]', root);
 		var drawer = qs('[data-push-drawer]', root);
@@ -67,13 +59,6 @@
 			);
 			if (pane) {
 				pane.classList.toggle('is-open', open);
-				if (open && pane.classList.contains('poly-vertical-flyout-pane')) {
-					var rect = wrap.getBoundingClientRect();
-					var top = Math.max(8, rect.top - 8);
-					pane.style.top = top + 'px';
-					pane.style.maxHeight =
-						Math.max(120, window.innerHeight - top - 12) + 'px';
-				}
 			}
 			var panel = getPanel(wrap);
 			if (panel) {
@@ -349,7 +334,6 @@
 			if (desktopMq.matches && isMenuOpen()) {
 				closeMenu();
 			}
-			applyVerticalPush();
 		}
 
 		if (desktopMq.addEventListener) {

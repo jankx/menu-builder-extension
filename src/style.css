@@ -1096,37 +1096,12 @@ body.poly-menu-pushed.poly-menu-push-right {
   display: block;
 }
 
-/* Vertical variant on the frontend: the block sits inside normal page flow,
-   so the sidebar is pinned to the left of the viewport and the page body is
-   pushed right (margin, like the push drawer) to keep content beside it. */
+/* Vertical variant on the frontend: the sidebar stays in normal page flow
+   (content stacks below it); the flyout pane is anchored to its item. */
 @media (min-width: 1024px) {
   .poly-frontend--vertical .poly-vertical-sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: min(300px, 85vw);
-    max-width: none;
-    overflow-y: auto;
-    z-index: 60;
-    box-shadow: 12px 0 32px rgba(15, 23, 42, 0.08);
-  }
-
-  /* The flyout pane opens to the right of the viewport-pinned sidebar; it is
-     positioned against the viewport (top is refined by JS on open) because the
-     sidebar's own overflow would clip it. */
-  .poly-frontend--vertical .poly-vertical-flyout-pane {
-    position: fixed;
-    left: calc(min(300px, 85vw) + 18px);
-    top: 0;
-    max-width: calc(100vw - min(300px, 85vw) - 36px);
-    overflow-y: auto;
-  }
-
-  body.poly-vertical-sidebar-pushed {
-    margin-left: min(300px, 85vw);
-    overflow-x: hidden;
-    transition: margin-left 240ms var(--ease-out-expo);
+    width: 320px;
+    max-width: 100%;
   }
 }
 
