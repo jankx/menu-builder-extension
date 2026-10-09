@@ -516,11 +516,19 @@ export const PolymorphicMenuCanvas: React.FC<PolymorphicMenuCanvasProps> = ({
             }`}
           >
             <div className="poly-push-drawer-header">
-              <div className="poly-brand-lockup">
+<div className="poly-brand-lockup">
                 <span className="poly-brand-cube">
                   <Box size={16} />
                 </span>
-                <span className="poly-brand-wordmark">{schema.attributes.brandName}</span>
+                <span className="poly-brand-wordmark">
+                  {schema.attributes.brandLogo
+                    ? <img
+                        src={schema.attributes.brandLogo}
+                        alt={schema.attributes.brandName}
+                        style={{ height: '24px', width: 'auto' }}
+                      />
+                    : schema.attributes.brandName}
+                </span>
               </div>
               <button
                 type="button"
@@ -646,21 +654,27 @@ export const PolymorphicMenuCanvas: React.FC<PolymorphicMenuCanvasProps> = ({
           {!isVerticalMode ? (
             <>
               <header className="poly-site-header">
-                {/* Zone 1: Brand Lockup */}
-                <a
-                  href="#top"
-                  onClick={(e) => e.preventDefault()}
-                  className="poly-brand-lockup"
-                >
-                  <span className="poly-brand-cube">
-                    <Box size={18} />
-                  </span>
-                  <span className="poly-brand-wordmark">
-                    {schema.attributes.brandName}
-                  </span>
-                </a>
+                 {/* Zone 1: Brand Lockup */}
+                 <a
+                   href="#top"
+                   onClick={(e) => e.preventDefault()}
+                   className="poly-brand-lockup"
+                 >
+                   <span className="poly-brand-cube">
+                     <Box size={18} />
+                   </span>
+ <span className="poly-brand-wordmark">
+                     {schema.attributes.brandLogo
+                       ? <img
+                           src={schema.attributes.brandLogo}
+                           alt={schema.attributes.brandName}
+                           style={{ height: '28px', width: 'auto' }}
+                         />
+                       : schema.attributes.brandName}
+                   </span>
+                 </a>
 
-                {/* Zone 2: Primary Navigation Links with Direct Anchored Submenus */}
+                 {/* Zone 2: Primary Navigation Links with Direct Anchored Submenus */}
                 {!isCompactViewport && (
                   <nav
                     className="poly-primary-nav"
@@ -795,14 +809,20 @@ export const PolymorphicMenuCanvas: React.FC<PolymorphicMenuCanvasProps> = ({
             </>
           ) : (
             /* CASE 2: VERTICAL SIDEBAR MENU MODE */
-            <div className="poly-vertical-workspace">
+            <div className="poly-vertical-workspace" style={{ '--vertical-width': `${schema.attributes.verticalWidth}px` }}>
               <aside className="poly-vertical-sidebar">
                 <div className="poly-vertical-brand">
                   <span className="poly-brand-cube">
                     <Box size={18} />
                   </span>
                   <span className="poly-brand-wordmark">
-                    {schema.attributes.brandName}
+                    {schema.attributes.brandLogo
+                      ? <img
+                          src={schema.attributes.brandLogo}
+                          alt={schema.attributes.brandName}
+                          style={{ height: '28px', width: 'auto' }}
+                        />
+                      : schema.attributes.brandName}
                   </span>
                 </div>
 

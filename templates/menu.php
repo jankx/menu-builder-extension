@@ -22,6 +22,7 @@ if (!$items) {
 }
 
 $brand = (string) ($menu_attributes['brandName'] ?? 'Menu');
+$brand_logo = (string) ($menu_attributes['brandLogo'] ?? '');
 $cta_label = (string) ($menu_attributes['ctaLabel'] ?? 'Get Started');
 $cta_url = (string) ($menu_attributes['ctaUrl'] ?? '#');
 $orientation = ($menu_attributes['orientation'] ?? 'horizontal') === 'vertical' ? 'vertical' : 'horizontal';
@@ -388,7 +389,11 @@ $login_url = function_exists('wp_login_url') ? wp_login_url() : '#';
 $horizontal = '<header class="poly-site-header"' . $header_style . '>'
     . '<a href="' . esc_url(home_url('/')) . '" class="poly-brand-lockup">'
     . '<span class="poly-brand-cube">' . $svg('box', 18) . '</span>'
-    . '<span class="poly-brand-wordmark">' . esc_html($brand) . '</span>'
+    . '<span class="poly-brand-wordmark">'
+    . ($brand_logo !== ''
+        ? '<img src="' . esc_url($brand_logo) . '" alt="' . esc_attr($brand) . '" style="height:28px;width:auto" />'
+        : esc_html($brand))
+    . '</span>'
     . '</a>'
     . '<nav class="poly-primary-nav" style="gap:' . $gap_px . 'px">';
 
@@ -447,11 +452,16 @@ $vertical = '';
 
 if ($orientation === 'vertical') {
     $expand_right = $expand_mode === 'flyout-right';
+    $vertical_width = max(200, (int) ($menu_attributes['verticalWidth'] ?? 280));
 
-    $vertical = '<aside class="poly-vertical-sidebar">'
+    $vertical = '<aside class="poly-vertical-sidebar" style="width:' . $vertical_width . 'px">'
         . '<div class="poly-vertical-brand">'
         . '<span class="poly-brand-cube">' . $svg('box', 18) . '</span>'
-        . '<span class="poly-brand-wordmark">' . esc_html($brand) . '</span>'
+        . '<span class="poly-brand-wordmark">'
+        . ($brand_logo !== ''
+            ? '<img src="' . esc_url($brand_logo) . '" alt="' . esc_attr($brand) . '" style="height:28px;width:auto" />'
+            : esc_html($brand))
+        . '</span>'
         . '</div>'
         . '<div class="poly-vertical-kicker">VERTICAL NAVIGATION (' . esc_html($expand_mode) . ')</div>'
         . '<nav class="poly-vertical-nav">';
@@ -507,7 +517,11 @@ if ($is_push) {
         . '<div class="poly-push-drawer-header">'
         . '<div class="poly-brand-lockup">'
         . '<span class="poly-brand-cube">' . $svg('box', 16) . '</span>'
-        . '<span class="poly-brand-wordmark">' . esc_html($brand) . '</span>'
+        . '<span class="poly-brand-wordmark">'
+        . ($brand_logo !== ''
+            ? '<img src="' . esc_url($brand_logo) . '" alt="' . esc_attr($brand) . '" style="height:24px;width:auto" />'
+            : esc_html($brand))
+        . '</span>'
         . '</div>'
         . '<button type="button" class="poly-drawer-close-btn" data-action="close-push" aria-label="Đóng Push Menu">'
         . $svg('x', 16) . '</button>'

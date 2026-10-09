@@ -98,6 +98,8 @@ export interface GutenbergMenuSchema {
   attributes: {
     menuTitle: string;
     brandName: string;
+    brandLogo?: string;
+    verticalWidth: number;
     ctaLabel: string;
     ctaUrl: string;
     orientation: MenuOrientation;

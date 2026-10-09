@@ -579,32 +579,50 @@ export const GutenbergInspector: React.FC<GutenbergInspectorProps> = ({
               </div>
 
               {schema.attributes.orientation === 'vertical' && (
-                <div className="gb-field">
-                  <span className="gb-field-label">Cách mở Submenu của Vertical Menu</span>
-                  <div className="gb-segmented">
-                    {(
-                      [
-                        { id: 'flyout-right', label: 'Bung ngang bên phải' },
-                        { id: 'accordion-inline', label: 'Sổ dọc Accordion' },
-                      ] as Array<{ id: VerticalSubmenuExpand; label: string }>
-                    ).map((exp) => (
-                      <button
-                        key={exp.id}
-                        type="button"
-                        onClick={() =>
-                          onUpdateSchema({
-                            ...schema,
-                            attributes: { ...schema.attributes, verticalExpandMode: exp.id },
-                          })
-                        }
-                        className={`gb-segmented-btn ${
-                          schema.attributes.verticalExpandMode === exp.id ? 'is-active' : ''
-                        }`}
-                      >
-                        {exp.label}
-                      </button>
-                    ))}
+                <div className="gb-panel-section">
+                  <div className="gb-panel-header">
+                    <span className="gb-panel-title">Cách mở Submenu của Vertical Menu</span>
                   </div>
+                  <div className="gb-field">
+                    <span className="gb-field-label">Chiều rộng thanh bên (px)</span>
+                    <div className="gb-segmented">
+                      {([260, 280, 300, 320, 360, 400] as Array<260 | 280 | 300 | 320 | 360 | 400>).map(
+                        (w) => (
+                          <button
+                            key={w}
+                            type="button"
+                            onClick={() =>
+                              onUpdateSchema({
+                                ...schema,
+                                attributes: { ...schema.attributes, verticalWidth: w },
+                              })
+                            }
+                            className={`gb-segmented-btn tabular-nums ${
+                              schema.attributes.verticalWidth === w ? 'is-active' : ''
+                            }`}
+                          >
+                            {w}px
+                          </button>
+                        )
+                      )}
+                    </div>
+                  </div>
+                  <select
+                    className="gb-input"
+                    value={schema.attributes.verticalExpandMode}
+                    onChange={(e) =>
+                      onUpdateSchema({
+                        ...schema,
+                        attributes: {
+                          ...schema.attributes,
+                          verticalExpandMode: e.target.value as VerticalSubmenuExpand,
+                        },
+                      })
+                    }
+                  >
+                    <option value="flyout-right">Bung ngang bên phải</option>
+                    <option value="accordion-inline">Sổ dọc Accordion</option>
+                  </select>
                 </div>
               )}
             </div>
@@ -680,6 +698,25 @@ export const GutenbergInspector: React.FC<GutenbergInspectorProps> = ({
                     })
                   }
                 />
+              </label>
+
+              <label className="gb-field">
+                <span className="gb-field-label">Logo Thương hiệu (URL)</span>
+                <input
+                  type="text"
+                  className="gb-input gb-input--mono"
+                  placeholder="https://example.com/logo.png"
+                  value={schema.attributes.brandLogo || ''}
+                  onChange={(e) =>
+                    onUpdateSchema({
+                      ...schema,
+                      attributes: { ...schema.attributes, brandLogo: e.target.value },
+                    })
+                  }
+                />
+                <span className="gb-field-hint">
+                  Nhập URL hình ảnh logo thương hiệu. Bỏ trống để dùng text brandName.
+                </span>
               </label>
 
               <label className="gb-field">
